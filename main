@@ -5,39 +5,39 @@ getgenv().AdminTable = {
 	[2979792468] = {["Access"] = 5}; --Harlem
 	[2864614126] = {["Access"] = 5}; --Harlem
 	[2353695908] = {["Access"] = 5}; --Harlem
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; --
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5}; -- 
-	[] = {["Access"] = 5} -- 
+	[57] = {["Access"] = 5}; -- 
+	[567] = {["Access"] = 5}; -- 
+	[5675] = {["Access"] = 5}; -- 
+	[567] = {["Access"] = 5}; -- 
+	[567] = {["Access"] = 5}; -- 
+	[567] = {["Access"] = 5}; -- 
+	[567] = {["Access"] = 5}; -- 
+	[567] = {["Access"] = 5}; -- 
+	[576] = {["Access"] = 5}; --
+	[657] = {["Access"] = 5}; -- 
+	[567] = {["Access"] = 5}; -- 
+	[756] = {["Access"] = 5}; -- 
+	[567] = {["Access"] = 5}; -- 
+	[57] = {["Access"] = 5}; -- 
+	[56] = {["Access"] = 5}; -- 
+	[678] = {["Access"] = 5}; -- 
+	[768] = {["Access"] = 5}; -- 
+	[678] = {["Access"] = 5}; -- 
+	[678] = {["Access"] = 5}; -- 
+	[678] = {["Access"] = 5}; -- 
+	[768] = {["Access"] = 5}; -- 
+	[68] = {["Access"] = 5}; -- 
+	[678] = {["Access"] = 5}; -- 
+	[768] = {["Access"] = 5}; -- 
+	[67] = {["Access"] = 5}; -- 
+	[64] = {["Access"] = 5}; -- 
+	[657] = {["Access"] = 5}; -- 
+	[879] = {["Access"] = 5}; -- 
+	[58] = {["Access"] = 5}; -- 
+	[68] = {["Access"] = 5}; -- 
+	[886] = {["Access"] = 5}; -- 
+	[47] = {["Access"] = 5}; -- 
+	[567] = {["Access"] = 5} -- 
 }
 
 local GP = Players:GetPlayers()
@@ -122,29 +122,9 @@ getgenv().AdminCmdList = {
 	["Crash"] = {
 		["CommandFunc"] = function(Player, self, CmdPlayer)
 			if Player == LocalP or Player == "all" then
-				local Loop = true
-
-spawn(
-    function()
-        while Loop do
-            if game.Players.LocalPlayer.Character.Humanoid.Health <= 30 then
-                local LastPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-                break
-            end
-        end
-    end
-)
-
-while loop do
-    wait(0.1)
-    if game.Players.LocalPlayer.Character.Humanoid.Health <= 30 then
-        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(666.902832, -431.744995, 931.35498) -- CFrame Here
-        if game.Players.LocalPlayer.Character.Humanoid.Health <= 75 then
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = LastPosition -- Goes back to old position
-            break
-        end
-    end
-end
+while true do
+				end
+			end
 		end;
 		["Clearence"] = {[4] = true;[5] = true;};
 	};
